@@ -1,45 +1,17 @@
-const ul = document.getElementById('ul-js');
-const menuBtn = document.getElementById('menu-button');
+import { openSidebar, closeSidebar, closeOnExit, updateNavbarUl } from "./sidebar.js";
+import { menuBtn, closeBtn } from "./elements.js"
+import { setupMediaQuery } from "./utils/media.js";
 
-const media = window.matchMedia("(width < 600px)");
-updateNavbarUl(media);
-
-media.addEventListener('change', (e) => {
-    updateNavbarUl(e);
-});
-
-function updateNavbarUl(media) {
-    const isMobile = media.matches;
-    if (isMobile) {
-        ul.setAttribute('inert', '');
-    }
-    else {
-        ul.removeAttribute('inert');
-    }
-}
-
-function openSidebar() {
-    ul.classList.add('show');
-    menuBtn.setAttribute('aria-expanded', true);
-    ul.setAttribute('inert', '');
-
-}
-
-function closeSidebar() {
-    ul.classList.remove('show');
-    menuBtn.setAttribute('aria-expanded', false);
-    ul.removeAttribute('inert');
-
-}
-
-function closeOnExit(e) {
-    if (!ul.contains(e.target) && !menuBtn.contains(e.target)) {
-        closeSidebar();
-    }
-}
+const media = setupMediaQuery(updateNavbarUl);
 
 document.addEventListener('click', (e) => {
 
     //sidebar
     closeOnExit(e);
+    if (menuBtn.contains(e.target)) {
+        openSidebar();
+    } else if (closeBtn.contains(e.target)) {
+        closeSidebar();
+    }
+
 });
