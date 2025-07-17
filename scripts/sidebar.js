@@ -1,6 +1,37 @@
-import { ul, menuBtn } from "./elements.js"
+import { setupMediaQuery } from "./utils/media.js";
 
-export function updateNavbarUl(media) {
+const ul = document.getElementById('ul-js');
+const menuBtn = document.getElementById('menu-button');
+const closeBtn = document.getElementById('close-button');
+
+
+export default function initSidebar() {
+    setupMediaQuery(updateNavbarUl);
+
+    document.addEventListener('click', (e) => {
+
+        if (
+            !ul.contains(e.target)
+            && !menuBtn.contains(e.target)
+            || closeBtn.contains(e.target)) {
+            closeSidebar();
+        }
+        else if (menuBtn.contains(e.target)) {
+            openSidebar();
+        }
+
+        // (!ul.contains(e.target)
+        //     && !menuBtn.contains(e.target))
+        //     || closeBtn.contains(e.target)
+        //     ? closeSidebar()
+        //     : menuBtn.contains(e.target)
+        //         ? openSidebar()
+        //         : ''
+
+    });
+}
+
+function updateNavbarUl(media) {
     const isMobile = media.matches;
     if (isMobile) {
         ul.setAttribute('inert', '');
@@ -10,22 +41,18 @@ export function updateNavbarUl(media) {
     }
 }
 
-export function openSidebar() {
+function openSidebar() {
     ul.classList.add('show');
     menuBtn.setAttribute('aria-expanded', true);
     ul.removeAttribute('inert', '');
 
 }
 
-export function closeSidebar() {
+function closeSidebar() {
     ul.classList.remove('show');
     menuBtn.setAttribute('aria-expanded', false);
     ul.setAttribute('inert', '');
 
 }
 
-export function closeOnExit(e) {
-    if (!ul.contains(e.target) && !menuBtn.contains(e.target)) {
-        closeSidebar();
-    }
-}
+
