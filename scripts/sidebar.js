@@ -10,24 +10,14 @@ export default function initSidebar() {
 
     document.addEventListener('click', (e) => {
 
-        if (
-            !ul.contains(e.target)
-            && !menuBtn.contains(e.target)
-            || closeBtn.contains(e.target)) {
-            closeSidebar();
-        }
-        else if (menuBtn.contains(e.target)) {
+        if (menuBtn.contains(e.target)) {
             openSidebar();
         }
-
-        // (!ul.contains(e.target)
-        //     && !menuBtn.contains(e.target))
-        //     || closeBtn.contains(e.target)
-        //     ? closeSidebar()
-        //     : menuBtn.contains(e.target)
-        //         ? openSidebar()
-        //         : ''
-
+        else if (
+            closeBtn.contains(e.target)
+            || !ul.contains(e.target)) {
+            closeSidebar();
+        }
     });
 }
 
@@ -54,5 +44,3 @@ function closeSidebar() {
     ul.setAttribute('inert', '');
 
 }
-
-
