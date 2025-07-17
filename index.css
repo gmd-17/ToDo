@@ -12,6 +12,8 @@
     --text-muted: hsl(0, 0%, 70%);
     --border: hsl(0, 0%, 30%);
     --accent: hsl(125, 50%, 60%);
+    --accent-dark: hsl(125, 50%, 50%);
+    --gradient: linear-gradient(30deg, var(--accent), var(--accent-dark));
     --accent-hv: hsl(125, 50%, 70%);
     --warning: hsl(0, 60%, 60%);
 
@@ -27,7 +29,7 @@ body {
 }
 
 nav {
-    background-color: var(--accent);
+    background: var(--gradient);
     display: flex;
 }
 
