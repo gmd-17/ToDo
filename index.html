@@ -82,25 +82,72 @@
                 </div>
             </form>
 
-
             <div class="list">
-                <div class="todo">
-                    <input type="checkbox" name="todo1" id="todo1">
-                    <label for="todo1" class="custom-checkbox" aria-label="Mark this task as done"></label>
-                    <label for="todo1" class="todo-text">Test </label>
+                <div class="todo" id="todo-1">
+                    <input type="checkbox" class="checkbox" name="todo-1:checkbox" id="todo-1:checkbox"
+                        data-todo-id="todo-1">
+                    <label for="todo-1:checkbox" class="custom-checkbox" aria-label="Mark this task as done"></label>
+
+                    <div class="todo-info" data-todo-id="todo-1">
+                        <p class="todo-title" id="todo-1:title">Test</p>
+                        <div class="todo-details" id="todo-1:details">
+                            <div class="todo-details-group todo-priority">
+                                <span class="todo-details-label">Priority</span>
+                                <span class="badge high"></span>
+                                <span class="badge-text high">High</span>
+                            </div>
+                            <div class="todo-details-group todo-due-date">
+                                <span class="todo-details-label">Due Date</span>
+                                <span class="todo-details-value">30/7/2025</span>
+                            </div>
+                            <div class="todo-details-group todo-category">
+                                <span class="todo-details-label">Category</span>
+                                <span class="todo-details-value">General</span>
+                            </div>
+                            <div class="todo-details-group todo-notes">
+                                <span class="todo-details-label">Notes</span>
+                                <p class="todo-details-value todo-notes">This is the first todo. Testing</p>
+                            </div>
+                        </div>
+                    </div>
                     <button class="delete-todo-btn" data-detele-btn="todo1"><svg xmlns="http://www.w3.org/2000/svg"
                             height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--bg)">
                             <path
                                 d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
                         </svg></button>
                 </div>
-                <div class="todo">
-                    <input type="checkbox" name="todo2" id="todo2">
-                    <label for="todo2" class="custom-checkbox" aria-label="Mark this task as done"></label>
-                    <label for="todo2" class="todo-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-                        repellendus similique nemo pariatur nisi. Natus voluptate saepe voluptates incidunt ipsam
-                        explicabo impedit ipsum, optio ad non cum deserunt, magnam architecto.</label>
-                    <button class="delete-todo-btn" data-detele-btn="todo2"><svg xmlns="http://www.w3.org/2000/svg"
+                <div class="todo" id="todo-2">
+                    <input type="checkbox" class="checkbox" name="todo-2:checkbox" id="todo-2:checkbox"
+                        data-todo-id="todo-2">
+                    <label for="todo-2:checkbox" class="custom-checkbox" aria-label="Mark this task as done"></label>
+
+                    <div class="todo-info" data-todo-id="todo-2">
+                        <p class="todo-title" id="todo-2:title">this has a long title. to test out the responsiveness.
+                        </p>
+                        <div class="todo-details" id="todo-2:details">
+                            <div class="todo-details-group todo-priority">
+                                <span class="todo-details-label">Priority</span>
+                                <span class="badge medium"></span>
+                                <span class="badge-text medium">Medium</span>
+                            </div>
+                            <div class="todo-details-group todo-due-date">
+                                <span class="todo-details-label">Due Date</span>
+                                <span class="todo-details-value">30/7/2025</span>
+                            </div>
+                            <div class="todo-details-group todo-category">
+                                <span class="todo-details-label">Category</span>
+                                <span class="todo-details-value">General</span>
+                            </div>
+                            <div class="todo-details-group todo-notes">
+                                <span class="todo-details-label">Notes</span>
+                                <p class="todo-details-value todo-notes-p">Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Non minus enim voluptatum, animi blanditiis distinctio vitae harum
+                                    placeat cupiditate alias expedita in dolorem inventore cumque exercitationem laborum
+                                    consequatur qui quibusdam.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="delete-todo-btn" data-detele-btn="todo1"><svg xmlns="http://www.w3.org/2000/svg"
                             height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--bg)">
                             <path
                                 d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />

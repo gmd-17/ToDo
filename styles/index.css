@@ -222,7 +222,8 @@ form {
     transform: rotate(270deg);
 }
 
-.more-details {
+.more-details,
+.todo-details {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -233,9 +234,11 @@ form {
     gap: 2%;
 }
 
-.more-details.expanded {
+.more-details.expanded,
+.todo-details.expanded {
     max-height: 200px;
     opacity: 1;
+
 }
 
 .detail-group {
@@ -266,6 +269,7 @@ form {
     display: inline-block;
     width: 1rem;
     height: 1rem;
+    margin-right: 0.5rem;
     background: var(--text-muted);
     border-radius: 2px;
 }
@@ -294,6 +298,18 @@ option[value="low"] {
     background-color: var(--low);
 }
 
+.badge-text.high {
+    color: var(--warning);
+}
+
+.badge-text.medium {
+    color: var(--caution);
+}
+
+.badge-text.low {
+    color: var(--low);
+}
+
 .list {
     /* padding: 1rem; */
 }
@@ -311,33 +327,34 @@ option[value="low"] {
     background: var(--bg-light);
 }
 
-.todo input {
+.todo .checkbox {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
 .custom-checkbox {
+    align-self: flex-start;
     min-width: 1rem;
     min-height: 1rem;
     border: 2px solid var(--border);
     border-radius: 2px;
     cursor: pointer;
     position: relative;
-    margin-right: 1rem;
+    margin: 0.75rem 1rem 0.75rem 0;
 }
 
-.todo input:focus~.custom-checkbox,
+.todo .checkbox:focus~.custom-checkbox,
 .custom-checkbox:hover {
     border-color: var(--accent-hv);
 }
 
-.todo input:checked~.custom-checkbox {
+.todo .checkbox:checked~.custom-checkbox {
     background: var(--accent);
     border-color: var(--accent);
 }
 
-.todo input:checked~.custom-checkbox::after {
+.todo .checkbox:checked~.custom-checkbox::after {
     content: '';
     position: absolute;
     width: 0.5rem;
@@ -348,10 +365,56 @@ option[value="low"] {
     translate: 2px 2px;
 }
 
-.todo-text {
-    flex-grow: 1;
+.todo-info {
+    flex: 1;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.todo-title {
+    flex-basis: 100%;
+    font-size: 1.25rem;
+    padding: 0.25rem;
     cursor: pointer;
 }
+
+.todo-details {
+
+    flex-basis: 100%;
+
+    margin: 0;
+    font-size: 0.75rem;
+    gap: 4%;
+}
+
+.todo-details.expanded {
+    padding: 0.5rem;
+}
+
+.todo-details-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+
+}
+
+.todo-details-group.todo-notes {
+    flex-basis: 100%;
+}
+
+.todo-details-label {
+    flex-basis: 100%;
+    color: var(--text-faint);
+}
+
+.todo-details-value.todo-notes-p {
+    font-size: 1.25em;
+
+}
+
+
 
 .delete-todo-btn {
     background: none;
@@ -407,10 +470,6 @@ option[value="low"] {
 
     .quick-add {
         flex-direction: column;
-    }
-
-    #todo-title {
-        padding: 1rem;
     }
 }
 
