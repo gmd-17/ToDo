@@ -27,20 +27,6 @@
     font-size: 16px;
 }
 
-/* 
-
-html::-webkit-scrollbar {
-    width: 2vw;
-}
-
-html::-webkit-scrollbar-thumb {
-    background: var(--bg-light);
-}
-
-html::-webkit-scrollbar-track {
-    background: var(--bg);
-} */
-
 body {
     background: var(--bg-dark);
     min-height: 100vh;
@@ -422,7 +408,6 @@ option[value="low"] {
 
 .todo-details-group.todo-notes {
     flex-basis: 100%;
-    font-size: 1.25em;
 }
 
 .todo-details-label {
@@ -433,9 +418,34 @@ option[value="low"] {
 .todo-details-value.todo-notes-p {
     max-height: 200px;
     overflow: auto;
+    font-size: 1.25em;
 
 }
 
+.todo-details-value.todo-notes-p::-webkit-scrollbar {
+    width: 1vw;
+}
+
+.todo-details-value.todo-notes-p::-webkit-scrollbar-thumb {
+    background: var(--bg-light);
+    border-radius: 1vw;
+    transition: background-color 150ms ease;
+}
+
+.todo-details-value.todo-notes-p::-webkit-scrollbar-track {
+    background: var(--bg);
+    border-radius: 1vw;
+}
+
+.todo:hover .todo-details-value.todo-notes-p::-webkit-scrollbar-thumb {
+    background: var(--bg-hv);
+    border-radius: 1vw;
+}
+
+.todo:hover .todo-details-value.todo-notes-p::-webkit-scrollbar-track {
+    background: var(--bg);
+    border-radius: 1vw;
+}
 
 
 .delete-todo-btn {
