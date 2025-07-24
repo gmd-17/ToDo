@@ -57,27 +57,29 @@
                         viewBox="0 -960 960 960" width="24px" fill="var(--text-muted)">
                         <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
                     </svg>More Details</button>
-                <div class="more-details" id="more-details">
-                    <div class="detail-group">
-                        <label for="priority" class="details-label">Priority</label>
-                        <select class="form-input details-input" name="priority" id="priority">
-                            <option value="select priority">Select Priority</option>
-                            <option value="high">High</option>
-                            <option value="medium">Medium</option>
-                            <option value="low">Low</option>
-                        </select>
-                    </div>
-                    <div class="detail-group">
-                        <label for="due-date" class="details-label">Due Date</label>
-                        <input type="date" class="form-input details-input" id="due-date" name="due-date">
-                    </div>
-                    <div class="detail-group">
-                        <label for="category" class="details-label">Category</label>
-                        <input type="text" class="form-input details-input" id="category" name="due-date">
-                    </div>
-                    <div class="detail-group notes-group">
-                        <label for="notes" class="details-label">Notes</label>
-                        <textarea class="form-input details-input" id="notes" name="notes"></textarea>
+                <div class="expandable" id="more-details">
+                    <div class="more-details">
+                        <div class="detail-group">
+                            <label for="priority" class="details-label">Priority</label>
+                            <select class="form-input details-input" name="priority" id="priority">
+                                <option value="select priority">Select Priority</option>
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>
+                        <div class="detail-group">
+                            <label for="due-date" class="details-label">Due Date</label>
+                            <input type="date" class="form-input details-input" id="due-date" name="due-date">
+                        </div>
+                        <div class="detail-group">
+                            <label for="category" class="details-label">Category</label>
+                            <input type="text" class="form-input details-input" id="category" name="due-date">
+                        </div>
+                        <div class="detail-group notes-group">
+                            <label for="notes" class="details-label">Notes</label>
+                            <textarea class="form-input details-input" id="notes" name="notes"></textarea>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -90,23 +92,25 @@
 
                     <div class="todo-info" data-todo-id="todo-1">
                         <p class="todo-title" id="todo-1:title">Test</p>
-                        <div class="todo-details" id="todo-1:details">
-                            <div class="todo-details-group todo-priority">
-                                <span class="todo-details-label">Priority</span>
-                                <span class="badge high"></span>
-                                <span class="badge-text high">High</span>
-                            </div>
-                            <div class="todo-details-group todo-due-date">
-                                <span class="todo-details-label">Due Date</span>
-                                <span class="todo-details-value">30/7/2025</span>
-                            </div>
-                            <div class="todo-details-group todo-category">
-                                <span class="todo-details-label">Category</span>
-                                <span class="todo-details-value">General</span>
-                            </div>
-                            <div class="todo-details-group todo-notes">
-                                <span class="todo-details-label">Notes</span>
-                                <p class="todo-details-value todo-notes">This is the first todo. Testing</p>
+                        <div class="expandable" id="todo-1:details">
+                            <div class="todo-details">
+                                <div class="todo-details-group todo-priority">
+                                    <span class="todo-details-label">Priority</span>
+                                    <span class="badge high"></span>
+                                    <span class="badge-text high">High</span>
+                                </div>
+                                <div class="todo-details-group todo-due-date">
+                                    <span class="todo-details-label">Due Date</span>
+                                    <span class="todo-details-value">30/7/2025</span>
+                                </div>
+                                <div class="todo-details-group todo-category">
+                                    <span class="todo-details-label">Category</span>
+                                    <span class="todo-details-value">General</span>
+                                </div>
+                                <div class="todo-details-group todo-notes">
+                                    <span class="todo-details-label">Notes</span>
+                                    <p class="todo-details-value todo-notes-p">This is the first todo. Testing</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -124,26 +128,39 @@
                     <div class="todo-info" data-todo-id="todo-2">
                         <p class="todo-title" id="todo-2:title">this has a long title. to test out the responsiveness.
                         </p>
-                        <div class="todo-details" id="todo-2:details">
-                            <div class="todo-details-group todo-priority">
-                                <span class="todo-details-label">Priority</span>
-                                <span class="badge medium"></span>
-                                <span class="badge-text medium">Medium</span>
-                            </div>
-                            <div class="todo-details-group todo-due-date">
-                                <span class="todo-details-label">Due Date</span>
-                                <span class="todo-details-value">30/7/2025</span>
-                            </div>
-                            <div class="todo-details-group todo-category">
-                                <span class="todo-details-label">Category</span>
-                                <span class="todo-details-value">General</span>
-                            </div>
-                            <div class="todo-details-group todo-notes">
-                                <span class="todo-details-label">Notes</span>
-                                <p class="todo-details-value todo-notes-p">Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Non minus enim voluptatum, animi blanditiis distinctio vitae harum
-                                    placeat cupiditate alias expedita in dolorem inventore cumque exercitationem laborum
-                                    consequatur qui quibusdam.</p>
+                        <div class="expandable" id="todo-2:details">
+                            <div class="todo-details">
+                                <div class="todo-details-group todo-priority">
+                                    <span class="todo-details-label">Priority</span>
+                                    <span class="badge medium"></span>
+                                    <span class="badge-text medium">Medium</span>
+                                </div>
+                                <div class="todo-details-group todo-due-date">
+                                    <span class="todo-details-label">Due Date</span>
+                                    <span class="todo-details-value">30/7/2025</span>
+                                </div>
+                                <div class="todo-details-group todo-category">
+                                    <span class="todo-details-label">Category</span>
+                                    <span class="todo-details-value">General</span>
+                                </div>
+                                <div class="todo-details-group todo-notes">
+                                    <span class="todo-details-label">Notes</span>
+                                    <p class="todo-details-value todo-notes-p">Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit. Non minus enim voluptatum, animi blanditiis distinctio vitae
+                                        harum
+                                        placeat cupiditate alias expedita in dolorem inventore cumque exercitationem
+                                        laborum
+                                        consequatur qui quibusdam. Lorem ipsum dolor sit amet consectetur adipisicing
+                                        elit. Dolores aliquam neque cumque corporis enim odio expedita accusamus ducimus
+                                        dolor. Ab maiores, quas pariatur consequatur eveniet repellendus magni culpa
+                                        beatae saepe officiis laboriosam ipsum earum, facere amet quo ipsam voluptatibus
+                                        similique! Ut, incidunt sunt doloribus atque illum esse, voluptatem iusto et est
+                                        quasi mollitia necessitatibus ipsam. Fugiat officiis animi sapiente quaerat
+                                        culpa facere ad at iste dignissimos numquam quasi natus, illum veritatis, beatae
+                                        a. Aperiam architecto qui minima. Ea culpa ab dicta. Animi molestiae aspernatur
+                                        minus suscipit ipsam veritatis error vitae rerum laborum eos quod reprehenderit
+                                        dolorem nulla, odio tenetur commodi.</p>
+                                </div>
                             </div>
                         </div>
                     </div>

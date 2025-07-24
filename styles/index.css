@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
     transition: background-color 150ms ease;
-
 }
 
 :root {
@@ -27,6 +26,20 @@
 
     font-size: 16px;
 }
+
+/* 
+
+html::-webkit-scrollbar {
+    width: 2vw;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--bg-light);
+}
+
+html::-webkit-scrollbar-track {
+    background: var(--bg);
+} */
 
 body {
     background: var(--bg-dark);
@@ -103,7 +116,7 @@ main {
     max-width: min(90%, 900px);
     margin: 2rem 0;
     padding-bottom: 1rem;
-    overflow: hidden;
+    overflow: auto;
     background-color: var(--bg);
     border-radius: 12px;
     box-shadow: 0px 0px 15px 5px var(--shadow);
@@ -222,28 +235,32 @@ form {
     transform: rotate(270deg);
 }
 
-.more-details,
-.todo-details {
-    max-height: 0;
+.expandable {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 500ms ease;
+    min-width: 100%;
+}
+
+.expandable>* {
     overflow: hidden;
-    opacity: 0;
-    transition: all 400ms ease;
+}
+
+.expandable.expanded {
+    grid-template-rows: 1fr;
+}
+
+
+.more-details {
     margin-top: 1.25rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 2%;
-}
-
-.more-details.expanded,
-.todo-details.expanded {
-    max-height: 200px;
-    opacity: 1;
-
 }
 
 .detail-group {
     margin-bottom: 0.5rem;
     flex-basis: 49%;
+    margin-right: 1%;
     display: flex;
     flex-direction: column;
 }
@@ -380,12 +397,13 @@ option[value="low"] {
 }
 
 .todo-details {
-
     flex-basis: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
 
     margin: 0;
     font-size: 0.75rem;
-    gap: 4%;
 }
 
 .todo-details.expanded {
@@ -393,6 +411,8 @@ option[value="low"] {
 }
 
 .todo-details-group {
+    margin-right: 4%;
+
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -402,6 +422,7 @@ option[value="low"] {
 
 .todo-details-group.todo-notes {
     flex-basis: 100%;
+    font-size: 1.25em;
 }
 
 .todo-details-label {
@@ -410,7 +431,8 @@ option[value="low"] {
 }
 
 .todo-details-value.todo-notes-p {
-    font-size: 1.25em;
+    max-height: 200px;
+    overflow: auto;
 
 }
 
