@@ -109,6 +109,7 @@ main {
 }
 
 .toolbar {
+    border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     padding: 0.5rem;
     margin-bottom: 1rem;
@@ -129,8 +130,8 @@ main {
 
 form {
     border-radius: 8px;
-    margin: 1rem 0.5rem;
-    padding: 1rem 1.25rem;
+    margin: 1rem 0.5rem 0;
+    padding: 1rem 1.25rem 0;
     transition: all 300ms ease-out;
 }
 
@@ -146,14 +147,15 @@ form {
     flex: 1;
     font-size: 1.25rem;
     border-radius: 8px;
+    font-family: inherit;
 }
 
 #todo-title:focus {
     box-shadow: 0 0 2px 2px var(--accent-glow);
 }
 
-#add-todo-btn {
-    background: var(--accent);
+.btn {
+    background: var(--text-muted);
     color: inherit;
     border: none;
     border-radius: 8px;
@@ -164,6 +166,10 @@ form {
     transition: all 150ms ease-in-out;
 }
 
+#add-todo-btn {
+    background: var(--accent);
+}
+
 #add-todo-btn:hover,
 #add-todo-btn:focus {
     outline: none;
@@ -171,6 +177,19 @@ form {
     transform: translateY(-2px);
 }
 
+#reset-btn {
+    background: none;
+    color: var(--text-faint);
+    border: 2px solid var(--border);
+    padding: 0.5rem 1.25rem;
+    margin: 0.5rem 0rem;
+}
+
+#reset-btn:hover {
+    color: var(--warning);
+    border-color: var(--warning);
+    box-shadow: 0 0 5px var(--warning);
+}
 
 .form-input {
     border: 2px solid var(--border);
@@ -201,6 +220,10 @@ form {
     margin: 0.75rem 0;
     display: flex;
     align-items: center;
+}
+
+#more-details-btn.expanded {
+    margin-bottom: 0;
 }
 
 #more-details-btn:hover,
@@ -238,9 +261,13 @@ form {
 
 
 .more-details {
-    margin-top: 1.25rem;
+    margin: 0;
     display: flex;
     flex-wrap: wrap;
+}
+
+.expandable.expanded .more-details {
+    margin: 1.25rem 0 0.75rem;
 }
 
 .detail-group {
@@ -266,6 +293,10 @@ form {
 .details-label {
     color: var(--text-faint);
     font-size: .75rem;
+}
+
+.detail-group :is(input, select, textarea) {
+    font-family: inherit;
 }
 
 .badge {
@@ -299,6 +330,11 @@ option[value="low"] {
 
 .badge.low {
     background-color: var(--low);
+}
+
+.badge-text {
+    text-transform: capitalize;
+    color: var(--text-muted);
 }
 
 .badge-text.high {
@@ -415,36 +451,37 @@ option[value="low"] {
     color: var(--text-faint);
 }
 
-.todo-details-value.todo-notes-p {
+.todo-notes-p {
     max-height: 200px;
     overflow: auto;
     font-size: 1.25em;
 
 }
 
-.todo-details-value.todo-notes-p::-webkit-scrollbar {
+.todo-notes-p::-webkit-scrollbar {
     width: 1vw;
 }
 
-.todo-details-value.todo-notes-p::-webkit-scrollbar-thumb {
+.todo-notes-p::-webkit-scrollbar-thumb {
     background: var(--bg-light);
     border-radius: 1vw;
-    transition: background-color 150ms ease;
 }
 
-.todo-details-value.todo-notes-p::-webkit-scrollbar-track {
+.todo-notes-p::-webkit-scrollbar-track {
     background: var(--bg);
     border-radius: 1vw;
 }
 
-.todo:hover .todo-details-value.todo-notes-p::-webkit-scrollbar-thumb {
+.todo:hover .todo-notes-p::-webkit-scrollbar {
+    width: 1.5vw;
+}
+
+.todo:hover .todo-notes-p::-webkit-scrollbar-thumb {
     background: var(--bg-hv);
-    border-radius: 1vw;
 }
 
-.todo:hover .todo-details-value.todo-notes-p::-webkit-scrollbar-track {
+.todo:hover .todo-notes-p::-webkit-scrollbar-track {
     background: var(--bg);
-    border-radius: 1vw;
 }
 
 
@@ -465,6 +502,14 @@ option[value="low"] {
     fill: var(--warning);
     outline: none;
 }
+
+
+/* Multipurpose class styles */
+.text-muted {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
 
 
 /*media queries*/
